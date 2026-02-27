@@ -1,0 +1,8 @@
+streamlit
+pandas
+plotly
+folium
+streamlit-folium
+Pillow
+requests
+koreanize-matplotlib
