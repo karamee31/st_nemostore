@@ -33,7 +33,13 @@ def load_data():
     """
     JSON 데이터를 로드하고 전처리를 수행합니다.
     """
-    with open('nemostore/api_sample.json', 'r', encoding='utf-8') as f:
+    import os
+    # 배포 환경(루트)과 로컬 환경(nemostore/) 모두 대응
+    file_path = 'api_sample.json'
+    if not os.path.exists(file_path):
+        file_path = os.path.join('nemostore', 'api_sample.json')
+        
+    with open(file_path, 'r', encoding='utf-8') as f:
         data = json.load(f)
     
     df = pd.DataFrame(data['items'])
